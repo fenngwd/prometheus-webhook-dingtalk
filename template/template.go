@@ -21,6 +21,13 @@ var (
 			return strings.Join(s, sep)
 		},
 		"markdown": markdownEscapeString,
+		"FilterLabel": func(label string, exclude_label string) bool {
+			exist := strings.Contains(exclude_label, label)
+			if exist {
+				return true
+			}
+			return false
+		},
 	}
 	isMarkdownSpecial [128]bool
 )
